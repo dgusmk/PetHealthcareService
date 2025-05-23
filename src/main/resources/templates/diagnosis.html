@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <style>
+            table {
+                width: 80%; /* 테이블의 전체 너비 설정 */
+                border-collapse: collapse; /* 중첩 테두리 제거 */
+                margin: 20px auto; /* 페이지 가운데 정렬 */
+                background-color: white; /* 테이블 배경색 설정 */
+            }
+            #customtable th, #customtable td {
+                border: 2px solid #000; /* 셀을 구분하는 선 추가 */
+                text-align: center; /* 텍스트 가운데 정렬 */
+                padding: 10px; /* 셀 내부 간격 설정 */
+            }
+            th {
+                background-color: #f2f2f2; /* 헤더 셀의 배경색 */
+                border-bottom: 3px solid #333; /* 헤더 셀과 데이터 셀 구분 */
+            }
+        </style>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">FiveGuys</div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/userprofile">USER_PROFILE</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petprofile">PET_PROFILE</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/hospital">HOSPITAL</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/diagnosis">DIAGNOSIS</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/imageUploader">IMAGE_PROCESSING</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/symptomClassification">SYMPTOM_CLASSIFICATION</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">Action</a>
+                                        <a class="dropdown-item" href="#!">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#!">Something else here</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div style="overflow-x: auto; width: 100%; position: relative;" class="container-fluid">
+                    <form id="diagnosisForm" method="POST">
+                        <label for="NAME">NAME:</label>
+                        <input type="text" id="NAME" name="NAME" placeholder="소유자명을 입력하세요">
+
+                        <label for="ADDRESS">ADDRESS:</label>
+                        <input type="text" id="ADDRESS" name="ADDRESS" placeholder="주소를 입력하세요">
+
+                        <label for="PLACE_OF_CARE">PLACE OF CARE:</label>
+                        <input type="text" id="PLACE_OF_CARE" name="PLACE_OF_CARE" placeholder="사육 장소를 입력하세요">
+
+                        <label for="SPECIES">SPECIES:</label>
+                        <input type="text" id="SPECIES" name="SPECIES" placeholder="종류를 입력하세요">
+
+                        <label for="BREED">BREED:</label>
+                        <input type="text" id="BREED" name="BREED" placeholder="품종을 입력하세요">
+
+                        <label for="ANIMAL_NAME">ANIMAL NAME:</label>
+                        <input type="text" id="ANIMAL_NAME" name="ANIMAL_NAME" placeholder="동물명을 입력하세요">
+
+                        <label for="GENDER">GENDER:</label>
+                        <input type="text" id="GENDER" name="GENDER" placeholder="성별을 입력하세요">
+
+                        <label for="AGE">AGE:</label>
+                        <input type="text" id="AGE" name="AGE" placeholder="연령을 입력하세요">
+
+                        <label for="COAT_COLOR">COAT COLOR:</label>
+                        <input type="text" id="COAT_COLOR" name="COAT_COLOR" placeholder="모색을 입력하세요">
+
+                        <label for="CHARACTERISTICS">CHARACTERISTICS:</label>
+                        <input type="text" id="CHARACTERISTICS" name="CHARACTERISTICS" placeholder="특징을 입력하세요">
+
+                        <label for="DISEASE_NAME">DISEASE NAME:</label>
+                        <input type="text" id="DISEASE_NAME" name="DISEASE_NAME" placeholder="병명을 입력하세요">
+
+                        <label for="ONSET_DATE">ONSET DATE:</label>
+                        <input type="text" id="ONSET_DATE" name="ONSET_DATE" placeholder="발병 연월일을 입력하세요 (예: 2023-12-31)">
+
+                        <label for="DIAGNOSIS_DATE">DIAGNOSIS DATE:</label>
+                        <input type="text" id="DIAGNOSIS_DATE" name="DIAGNOSIS_DATE" placeholder="진단 연월일을 입력하세요 (예: 2023-12-31)">
+
+                        <label for="MAIN_SYMPTOMS">MAIN SYMPTOMS:</label>
+                        <input type="text" id="MAIN_SYMPTOMS" name="MAIN_SYMPTOMS" placeholder="주요 증상을 입력하세요">
+
+                        <label for="TREATMENT_NAME">TREATMENT NAME:</label>
+                        <input type="text" id="TREATMENT_NAME" name="TREATMENT_NAME" placeholder="치료 명칭을 입력하세요">
+
+                        <label for="ADMISSION_DISCHARGE_DATE">ADMISSION DISCHARGE DATE:</label>
+                        <input type="text" id="ADMISSION_DISCHARGE_DATE" name="ADMISSION_DISCHARGE_DATE" placeholder="입원*퇴원일을 입력하세요 (예: 2023-12-31)">
+
+                        <label for="PROGNOSIS">PROGNOSIS:</label>
+                        <input type="text" id="PROGNOSIS" name="PROGNOSIS" placeholder="예후 소견을 입력하세요">
+
+                        <label for="ADDITIONAL_INFO">ADDITIONAL INFO:</label>
+                        <input type="text" id="ADDITIONAL_INFO" name="ADDITIONAL_INFO" placeholder="그 밖의 사항을 입력하세요">
+
+                        <label for="CLINIC_NAME">CLINIC NAME:</label>
+                        <input type="text" id="CLINIC_NAME" name="CLINIC_NAME" placeholder="동물병원 명칭을 입력하세요">
+
+                        <label for="CLINIC_ADDRESS">CLINIC ADDRESS:</label>
+                        <input type="text" id="CLINIC_ADDRESS" name="CLINIC_ADDRESS" placeholder="동물병원 주소를 입력하세요">
+
+                        <label for="PHONE_NUMBER">PHONE NUMBER:</label>
+                        <input type="text" id="PHONE_NUMBER" name="PHONE_NUMBER" placeholder="전화번호를 입력하세요">
+
+                        <label for="LICENSE_NUMBER">LICENSE NUMBER:</label>
+                        <input type="text" id="LICENSE_NUMBER" name="LICENSE_NUMBER" placeholder="면허번호를 입력하세요">
+
+                        <label for="VET_NAME">VET NAME:</label>
+                        <input type="text" id="VET_NAME" name="VET_NAME" placeholder="수의사 성명을 입력하세요">
+                    </form>
+
+                    <!-- 정보 입력 버튼 -->
+                        <button type="button" class="gray-button" onclick="submitForm('/diagnosis/search')">조회</button>
+                        <button type="button" class="gray-button" onclick="submitForm('/diagnosis/insert')">삽입</button>
+                        <button type="button" class="gray-button" onclick="submitForm('/diagnosis/delete')">삭제</button>
+                    </form>
+
+                    <script>
+                        function submitForm(url) {
+                            var form = document.getElementById("diagnosisForm");
+                            form.action = url;
+                            form.submit();
+                        }
+                    </script>
+
+                    <div th:if="${errorMessage}">
+                        <script th:inline="javascript">
+                            alert([[${errorMessage}]]);
+                        </script>
+                    </div>
+
+                    <h2 style="text-align: center;">Diagnosis Table</h2>
+                    <table id="customtable">
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>ADDRESS</th>
+                                <th>PLACE_OF_CARE</th>
+                                <th>SPECIES</th>
+                                <th>BREED</th>
+                                <th>ANIMAL_NAME</th>
+                                <th>GENDER</th>
+                                <th>AGE</th>
+                                <th>COAT_COLOR</th>
+                                <th>CHARACTERISTICS</th>
+                                <th>DISEASE_NAME</th>
+                                <th>ONSET_DATE</th>
+                                <th>DIAGNOSIS_DATE</th>
+                                <th>MAIN_SYMPTOMS</th>
+                                <th>TREATMENT_NAME</th>
+                                <th>ADMISSION_DISCHARGE_DATE</th>
+                                <th>PROGNOSIS</th>
+                                <th>ADDITIONAL_INFO</th>
+                                <th>CLINIC_NAME</th>
+                                <th>CLINIC_ADDRESS</th>
+                                <th>PHONE_NUMBER</th>
+                                <th>LICENSE_NUMBER</th>
+                                <th>VET_NAME</th>
+                            <tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="diagnosis : ${diagnosis_data}">
+                            <td th:text="${diagnosis.NAME}"></td>
+                            <td th:text="${diagnosis.ADDRESS}"></td>
+                            <td th:text="${diagnosis.PLACE_OF_CARE}"></td>
+                            <td th:text="${diagnosis.SPECIES}"></td>
+                            <td th:text="${diagnosis.BREED}"></td>
+                            <td th:text="${diagnosis.ANIMAL_NAME}"></td>
+                            <td th:text="${diagnosis.GENDER}"></td>
+                            <td th:text="${diagnosis.AGE}"></td>
+                            <td th:text="${diagnosis.COAT_COLOR}"></td>
+                            <td th:text="${diagnosis.CHARACTERISTICS}"></td>
+                            <td th:text="${diagnosis.DISEASE_NAME}"></td>
+                            <td th:text="${diagnosis.ONSET_DATE}"></td>
+                            <td th:text="${diagnosis.DIAGNOSIS_DATE}"></td>
+                            <td th:text="${diagnosis.MAIN_SYMPTOMS}"></td>
+                            <td th:text="${diagnosis.TREATMENT_NAME}"></td>
+                            <td th:text="${diagnosis.ADMISSION_DISCHARGE_DATE}"></td>
+                            <td th:text="${diagnosis.PROGNOSIS}"></td>
+                            <td th:text="${diagnosis.ADDITIONAL_INFO}"></td>
+                            <td th:text="${diagnosis.CLINIC_NAME}"></td>
+                            <td th:text="${diagnosis.CLINIC_ADDRESS}"></td>
+                            <td th:text="${diagnosis.PHONE_NUMBER}"></td>
+                            <td th:text="${diagnosis.LICENSE_NUMBER}"></td>
+                            <td th:text="${diagnosis.VET_NAME}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>

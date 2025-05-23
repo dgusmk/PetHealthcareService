@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- Favicon-->
+    <link href="/assets/favicon.ico" rel="icon" type="image/x-icon"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div>
+    <h1>이미지 업로드</h1>
+    <form enctype="multipart/form-data" id="imageUploadForm">
+        <input accept="image/*" id="imageFile" name="imageFile" type="file">
+        <button onclick="uploadImage()" type="button">업로드</button>
+    </form>
+</div>
+<script>
+    function uploadImage() {
+        const formData = new FormData();
+        const imageFile = document.getElementById('imageFile').files[0];
+
+        if (imageFile) {
+            formData.append('imageFile', imageFile);
+
+            fetch('/uploadImage', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    alert('이미지 업로드 성공!');
+                } else {
+                    alert('이미지 업로드 실패');
+                }
+            }).catch(error => {
+                console.error('오류 발생:', error);
+                alert('오류가 발생했습니다.');
+            });
+        } else {
+            alert('이미지를 선택해주세요.');
+        }
+    }
+</script>
+</body>
+</html>

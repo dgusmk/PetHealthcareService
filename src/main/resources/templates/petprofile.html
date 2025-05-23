@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <style>
+            table {
+                width: 80%; /* 테이블의 전체 너비 설정 */
+                border-collapse: collapse; /* 중첩 테두리 제거 */
+                margin: 20px auto; /* 페이지 가운데 정렬 */
+                background-color: white; /* 테이블 배경색 설정 */
+            }
+            #customtable th, #customtable td {
+                border: 2px solid #000; /* 셀을 구분하는 선 추가 */
+                text-align: center; /* 텍스트 가운데 정렬 */
+                padding: 10px; /* 셀 내부 간격 설정 */
+            }
+            th {
+                background-color: #f2f2f2; /* 헤더 셀의 배경색 */
+                border-bottom: 3px solid #333; /* 헤더 셀과 데이터 셀 구분 */
+            }
+        </style>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">FiveGuys</div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/userprofile">USER_PROFILE</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petprofile">PET_PROFILE</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/hospital">HOSPITAL</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/diagnosis">DIAGNOSIS</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/imageUploader">IMAGE_PROCESSING</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/symptomClassification">SYMPTOM_CLASSIFICATION</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">Action</a>
+                                        <a class="dropdown-item" href="#!">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#!">Something else here</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div style="overflow-x: auto; width: 100%; position: relative;" class="container-fluid">
+                    <form id="petForm" method="POST">
+                        <label for="PET_SRN">PET_SRN:</label>
+                        <input type="text" id="PET_SRN" name="PET_SRN" placeholder="반려동물 SRN 입력">
+
+                        <label for="USER_ID">USER_ID:</label>
+                        <input type="text" id="USER_ID" name="USER_ID" placeholder="사용자 ID를 입력하세요">
+
+                        <label for="PET_NM">PET_NM:</label>
+                        <input type="text" id="PET_NM" name="PET_NM" placeholder="반려동물 이름 입력">
+
+                        <label for="PET_CD">PET_CD:</label>
+                        <input type="text" id="PET_CD" name="PET_CD" placeholder="반려동물 코드 입력">
+
+                        <label for="PET_WGT_KG">PET_WGT_KG:</label>
+                        <input type="text" id="PET_WGT_KG" name="PET_WGT_KG" placeholder="반려동물 무게 (kg) 입력">
+
+                        <label for="PET_WGT_LB">PET_WGT_LB:</label>
+                        <input type="text" id="PET_WGT_LB" name="PET_WGT_LB" placeholder="반려동물 무게 (lb) 입력">
+
+                        <label for="PET_SEX">PET_SEX:</label>
+                        <input type="text" id="PET_SEX" name="PET_SEX" placeholder="반려동물 성별 입력">
+
+                        <label for="PET_BIRTH">PET_BIRTH:</label>
+                        <input type="text" id="PET_BIRTH" name="PET_BIRTH" placeholder="반려동물 생일 (예: 2023-12-31)">
+
+                        <label for="FILE_CODE">FILE_CODE:</label>
+                        <input type="text" id="FILE_CODE" name="FILE_CODE" placeholder="파일 코드 입력">
+
+                        <label for="REG_ID">REG_ID:</label>
+                        <input type="text" id="REG_ID" name="REG_ID" placeholder="등록 ID 입력">
+
+                        <!-- 정보 입력 버튼 -->
+                        <button type="button" class="gray-button" onclick="submitForm('/petprofile/search')">조회</button>
+                        <button type="button" class="gray-button" onclick="submitForm('/petprofile/insert')">삽입</button>
+                        <button type="button" class="gray-button" onclick="submitForm('/petprofile/delete')">삭제</button>
+                    </form>
+
+                    <script>
+                        function submitForm(url) {
+                            var form = document.getElementById("petForm");
+                            form.action = url;
+                            form.submit();
+                        }
+                    </script>
+
+                    <div th:if="${errorMessage}">
+                        <script th:inline="javascript">
+                            alert([[${errorMessage}]]);
+                        </script>
+                    </div>
+
+                    <h2 style="text-align: center;">Pet Profile Table</h2>
+                    <table id="customtable">
+                        <thead>
+                            <tr>
+                                <th>PET_SRN</th>
+                                <th>USER_ID</th>
+                                <th>PET_NM</th>
+                                <th>PET_CD</th>
+                                <th>PET_WGT_KG</th>
+                                <th>PET_WGT_LB</th>
+                                <th>PET_SEX</th>
+                                <th>PET_BIRTH</th>
+                                <th>FILE_CODE</th>
+                                <th>REG_ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="pet : ${pet_profile}">
+                                <td th:text="${pet.PET_SRN}"></td>
+                                <td th:text="${pet.USER_ID}"></td>
+                                <td th:text="${pet.PET_NM}"></td>
+                                <td th:text="${pet.PET_CD}"></td>
+                                <td th:text="${pet.PET_WGT_KG}"></td>
+                                <td th:text="${pet.PET_WGT_LB}"></td>
+                                <td th:text="${pet.PET_SEX}"></td>
+                                <td th:text="${pet.PET_BIRTH}"></td>
+                                <td th:text="${pet.FILE_CODE}"></td>
+                                <td th:text="${pet.REG_ID}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
