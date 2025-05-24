@@ -44,7 +44,11 @@ public class securityConfig {
                                 .requestMatchers("/home/**", "/diagnosis", "/hospital", "/imageProcess", "/petprofile", "/symptomClassification", "/userImage", "/userprofile").hasRole("admin")
                                 .anyRequest().authenticated()
                 )
-                .formLogin(Customizer.withDefaults())
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true)
+                        .permitAll()
+                )
                 .logout((logoutConfig) ->
                         logoutConfig.logoutSuccessUrl("/")
                 )
